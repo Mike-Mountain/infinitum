@@ -145,6 +145,31 @@
           }
         }
       }
+    },
+    "dash-ui": {
+      "projectType": "library",
+      "root": "libs/dash-ui",
+      "sourceRoot": "libs/dash-ui/src",
+      "prefix": "infinitum",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/dash-ui/src/**/*.ts",
+              "libs/dash-ui/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/dash-ui"],
+          "options": {
+            "jestConfig": "libs/dash-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
