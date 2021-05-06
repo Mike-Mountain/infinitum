@@ -81,6 +81,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/dashboard/src/environments/environment.ts",
+                  "with": "apps/dashboard/src/environments/environment.dev.ts"
+                }
+              ]
             }
           }
         },
@@ -92,6 +100,9 @@
           "configurations": {
             "production": {
               "browserTarget": "dashboard:build:production"
+            },
+            "dev": {
+              "browserTarget": "dashboard:build:dev"
             }
           }
         },
