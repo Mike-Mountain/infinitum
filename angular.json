@@ -36,7 +36,7 @@
       "projectType": "application",
       "root": "apps/dashboard",
       "sourceRoot": "apps/dashboard/src",
-      "prefix": "infinitum",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -150,7 +150,7 @@
       "projectType": "library",
       "root": "libs/dash-ui",
       "sourceRoot": "libs/dash-ui/src",
-      "prefix": "infinitum",
+      "prefix": "dash",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
