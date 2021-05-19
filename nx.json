@@ -15,6 +15,11 @@
     "dashboard": { "tags": [] },
     "dashboard-e2e": { "tags": [], "implicitDependencies": ["dashboard"] },
     "dash-ui": { "tags": [] },
-    "shared-ui": { "tags": [] }
+    "shared-ui": { "tags": [] },
+    "documentation": { "tags": [] },
+    "documentation-e2e": {
+      "tags": [],
+      "implicitDependencies": ["documentation"]
+    }
   }
 }
