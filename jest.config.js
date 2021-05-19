@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/dashboard',
     '<rootDir>/libs/dash-ui',
     '<rootDir>/libs/shared-ui',
+    '<rootDir>/apps/documentation',
   ],
 };
