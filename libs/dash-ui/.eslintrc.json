@@ -10,13 +10,15 @@
       ],
       "parserOptions": { "project": ["libs/dash-ui/tsconfig.*?.json"] },
       "rules": {
+        "@typescript-eslint/no-empty-function": 0,
+        "@angular-eslint/no-empty-lifecycle-method": 0,
         "@angular-eslint/directive-selector": [
           "error",
-          { "type": "attribute", "prefix": "infinitum", "style": "camelCase" }
+          { "type": "attribute", "prefix": "dash", "style": "camelCase" }
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "infinitum", "style": "kebab-case" }
+          { "type": "element", "prefix": "dash", "style": "kebab-case" }
         ]
       }
     },
