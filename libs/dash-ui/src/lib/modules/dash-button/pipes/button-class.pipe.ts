@@ -9,9 +9,9 @@ export class ButtonClassPipe implements PipeTransform {
   transform(type: ButtonType): string {
     switch (type) {
       case 'basic':
-        return 'mat-button';
+        return 'mat-dash-button';
       case 'icon':
-        return 'mat-icon-button';
+        return 'mat-icon-dash-button';
     }
   }
 

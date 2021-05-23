@@ -1,12 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { LayoutComponent } from './components/layout/layout.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    LayoutComponent
+  ],
   imports: [
-    CommonModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule
+  ],
+  exports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    LayoutComponent
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+}
