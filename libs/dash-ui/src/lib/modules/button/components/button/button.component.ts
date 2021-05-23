@@ -13,7 +13,7 @@ export class ButtonComponent implements OnInit {
   @Input() public role: ButtonRole = 'button';
   @Input() public disabled = false;
   @Input() public class?: string;
-  @Input() public style?: {key: string, value: string};
+  @Input() public style: {key: string, value: string} | undefined;
 
   constructor() {
   }

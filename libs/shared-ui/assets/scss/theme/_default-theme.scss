@@ -1,6 +1,9 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
+@import "./palettes/primary";
+@import "./palettes/accent";
+@import "./palettes/warn";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -11,16 +14,27 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$infinitum-primary: mat-palette($mat-indigo);
-$infinitum-accent: mat-palette($mat-pink, A200, A100, A400);
+$infinitum-primary: mat-palette($inf-primary);
+$infinitum-accent: mat-palette($inf-accent);
 
 // The warn palette is optional (defaults to red).
-$infinitum-warn: mat-palette($mat-red);
+$infinitum-warn: mat-palette($inf-warn);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$infinitum-theme: mat-dark-theme($infinitum-primary, $infinitum-accent, $infinitum-warn);
+$infinitum-dark-theme: mat-dark-theme($infinitum-primary, $infinitum-accent, $infinitum-warn);
+$infinitum-light-theme: mat-light-theme($infinitum-primary, $infinitum-accent, $infinitum-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($infinitum-theme);
+
+.dark-theme {
+  @include angular-material-theme($infinitum-dark-theme);
+  span {
+    color: white;
+  }
+}
+
+.light-theme {
+  @include angular-material-theme($infinitum-light-theme);
+}

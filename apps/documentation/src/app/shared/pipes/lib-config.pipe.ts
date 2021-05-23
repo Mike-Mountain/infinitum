@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { RouteModel } from '../models/utils.models/route.model';
 
 @Pipe({
   name: 'libConfig'
@@ -13,10 +12,10 @@ export class LibConfigPipe implements PipeTransform {
   }
 
   private getTitle(fragment: string): string {
-    switch (fragment) {
-      case '/dash-lib':
+    switch (true) {
+      case fragment.includes('/dash-lib'):
         return 'Dashboard Library';
-      case '/shared-ui-lib':
+      case fragment.includes('/shared-ui-lib'):
         return 'Shared UI Library';
       default:
         return '';

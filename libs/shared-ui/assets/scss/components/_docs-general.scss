@@ -1,0 +1,28 @@
+.docs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.docs-card {
+  margin-top: 2rem;
+  width: 75%;
+}
+
+.docs-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-auto-rows: 1fr;
+  grid-gap: 1rem;
+}
+
+.mat-tab-body {
+  margin-top: .5rem;
+}
+
+code {
+  background-color: var(--accent);
+  color: white;
+  padding: .2rem;
+  border-radius: 6px;
+}

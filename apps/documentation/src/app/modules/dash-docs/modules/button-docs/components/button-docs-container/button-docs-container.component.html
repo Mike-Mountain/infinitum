@@ -1,0 +1,49 @@
+<section class='docs-container'>
+  <mat-card class='docs-card'>
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label='Overview'>
+          <ng-container *ngTemplateOutlet='overview'></ng-container>
+        </mat-tab>
+        <mat-tab label='Examples'>
+          <docs-button-docs-examples></docs-button-docs-examples>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<ng-template #overview>
+  <p>
+    The <code>DashButtonModule</code> should be imported into whichever module needs it. If it is needed in more than
+    one module, consider creating a dedicated <code>library</code> module in your application to import library components.
+  </p>
+  <p>
+    The <code>dash-button</code> wraps the Angular material button, enforcing only the style necessary for the
+    Dashboard UI.
+  </p>
+  <h3>Models:</h3>
+  <div class='docs-grid'>
+    <p>color: <code>ButtonColor</code></p>
+    <p>
+      Used to determine the button color. Accepts 'primary', 'accent', and 'warn'. Defaults to 'primary'.
+    </p>
+    <p>type: <code>ButtonType</code></p>
+    <p>
+      The type of button to display. Accepts: 'basic' and 'icon'. Defaults to 'basic'.
+    </p>
+    <p>role: <code>ButtonRole</code></p>
+    <p>
+      Whether the component should render an <code>{{'<'}}a{{'>'}}</code> or <code>{{'<'}}button{{'>'}}</code> element.
+      Accepts 'link' and 'button'. Defaults to 'button'.
+    </p>
+    <p>class: <code>string</code></p>
+    <p>
+      Used to add a global css class to the element. This class can only be styled from the global stylesheet.
+    </p>
+    <p>style: <code>{{'{'}}key, value{{'}'}}</code></p>
+    <p>
+      Used to add inline style to the button element. Should be used only in extreme cases.
+    </p>
+  </div>
+</ng-template>
