@@ -1,0 +1,56 @@
+<div class='h-100 w-100 flex-between'>
+  <nav class='breadcrumbs'>
+    <ng-container *ngFor='let crumb of mockCrumbs; let idx = index'>
+      <a class='crumb' [routerLink]='crumb.route'>
+        {{crumb.title}}
+      </a>
+      <mat-icon *ngIf='idx !== mockCrumbs.length - 1'>keyboard_arrow_right</mat-icon>
+    </ng-container>
+  </nav>
+  <nav class='app-nav'>
+    <dash-button
+      type='icon'
+      color='primary'
+      class='icon-btn-sm'
+    >
+      <mat-icon class='icon-sm'>play_arrow</mat-icon>
+    </dash-button>
+    |
+    <dash-button
+      type='icon'
+      color='primary'
+      class='icon-btn-sm'
+    >
+      <mat-icon class='icon-sm'>code</mat-icon>
+    </dash-button>
+    <dash-button
+      type='icon'
+      color='primary'
+      class='icon-btn-sm'
+    >
+      <mat-icon class='icon-sm'>help</mat-icon>
+    </dash-button>
+    <dash-button
+      type='icon'
+      color='primary'
+      class='icon-btn-sm'
+    >
+      <mat-icon class='icon-sm'>home</mat-icon>
+    </dash-button>
+    |
+    <dash-button
+      type='icon'
+      color='primary'
+      class='icon-btn-sm'
+    >
+      <mat-icon class='icon-sm'>search</mat-icon>
+    </dash-button>
+    <dash-button
+      color='primary'
+      type='icon'
+      class='icon-btn-sm'
+    >
+      <mat-icon class='icon-sm'>more_vert</mat-icon>
+    </dash-button>
+  </nav>
+</div>

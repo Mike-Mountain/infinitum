@@ -5,7 +5,7 @@ import { ButtonDocsRoutingModule } from './button-docs-routing.module';
 import { ButtonDocsContainerComponent } from './components/button-docs-container/button-docs-container.component';
 import { SharedModule } from '../../../../shared/shared.module';
 import { ButtonDocsExamplesComponent } from './components/button-docs-examples/button-docs-examples.component';
-import { ButtonModule } from '../../../../../../../../libs/dash-ui/src/lib/modules/dash-button/button.module';
+import { DashButtonModule } from '../../../../../../../../libs/dash-ui/src/lib/modules/dash-button/dash-button.module';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { ButtonModule } from '../../../../../../../../libs/dash-ui/src/lib/modul
     CommonModule,
     ButtonDocsRoutingModule,
     SharedModule,
-    ButtonModule
+    DashButtonModule
   ]
 })
 export class ButtonDocsModule { }
