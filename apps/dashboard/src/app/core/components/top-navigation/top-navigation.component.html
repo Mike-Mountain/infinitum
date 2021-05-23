@@ -1,0 +1,13 @@
+<div class='h-100 w-100 flex-between'>
+  <nav class='breadcrumbs'>
+    <ng-container *ngFor='let crumb of mockCrumbs; let idx = index'>
+      <a class='crumb' [routerLink]='crumb.route'>
+        {{crumb.title}}
+      </a>
+      <mat-icon *ngIf='idx !== mockCrumbs.length - 1'>keyboard_arrow_right</mat-icon>
+    </ng-container>
+  </nav>
+  <nav class='app-nav'>
+<!--    <dash-button-->
+  </nav>
+</div>
