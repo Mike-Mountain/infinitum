@@ -1,7 +1,7 @@
 <ng-container *ngIf='role === "button"; else link'>
   <button
     mat-button
-    [class]="'mat-dash-button-override ' + class"
+    [class]="'mat-button-override ' + class"
     [color]='color'
     [disabled]='disabled'
     [ngClass]='type | buttonClass'
@@ -14,7 +14,7 @@
 <ng-template #link>
   <a
     mat-button
-    [class]="'mat-dash-button-override ' + class"
+    [class]="'mat-button-override ' + class"
     [color]='color'
     [disabled]='disabled'
     [ngClass]='type'
