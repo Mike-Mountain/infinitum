@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   ButtonColor,
   ButtonType
-} from '../../../../../../../../../../libs/dash-ui/src/lib/modules/button/models/dash-button.model';
+} from '../../../../../../../../../../libs/dash-ui/src/lib/modules/dash-button/models/dash-button.model';
 
 @Component({
   selector: 'docs-button-docs-examples',
