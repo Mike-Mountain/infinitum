@@ -18,5 +18,5 @@ import { ButtonClassPipe } from './pipes/button-class.pipe';
     ButtonComponent
   ]
 })
-export class ButtonModule {
+export class DashButtonModule {
 }
