@@ -5,9 +5,9 @@
     [color]='color'
     [disabled]='disabled'
     [ngClass]='type | buttonClass'
-    [ngStyle]='style'
+    [ngStyle]='style ? style : null'
   >
-    <ng-content></ng-content>
+    <ng-container *ngTemplateOutlet='content'></ng-container>
   </button>
 </ng-container>
 
@@ -18,8 +18,13 @@
     [color]='color'
     [disabled]='disabled'
     [ngClass]='type'
-    [ngStyle]='style'
+    [ngStyle]='style ? style : null'
   >
-    <ng-content></ng-content>
+    <ng-container *ngTemplateOutlet='content'></ng-container>
   </a>
+</ng-template>
+
+
+<ng-template #content>
+  <ng-content></ng-content>
 </ng-template>

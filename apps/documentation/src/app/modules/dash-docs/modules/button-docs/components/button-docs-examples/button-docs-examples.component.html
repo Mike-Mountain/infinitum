@@ -1,0 +1,26 @@
+<div class='docs-grid button-example-grid'>
+  <ng-container *ngFor='let type of types'>
+    <p class='text-capitalize flex-center'>{{type}}</p>
+    <ng-container *ngFor='let color of colors'>
+      <div class='flex-center'>
+        <dash-button
+          [color]='color'
+          [type]='type'
+          (click)='updateButton(color, type)'
+        >
+          <ng-container *ngIf='type === "basic"'>
+            Test
+          </ng-container>
+          <ng-container *ngIf='type === "icon"'>
+            <mat-icon>home</mat-icon>
+          </ng-container>
+        </dash-button>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+<div class='w-100 flex-center mt-4'>
+  <code>
+    {{buttonCode}}
+  </code>
+</div>

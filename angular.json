@@ -32,8 +32,7 @@
       "style": "scss"
     },
     "@schematics/angular:component": {
-      "style": "scss",
-      "name": ""
+      "style": "scss"
     },
     "@angular/material:navigation": {
       "style": "scss"

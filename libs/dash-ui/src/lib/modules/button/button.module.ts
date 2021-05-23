@@ -13,6 +13,9 @@ import { ButtonClassPipe } from './pipes/button-class.pipe';
   imports: [
     CommonModule,
     MatButtonModule
+  ],
+  exports: [
+    ButtonComponent
   ]
 })
 export class ButtonModule {

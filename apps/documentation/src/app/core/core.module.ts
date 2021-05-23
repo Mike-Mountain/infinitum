@@ -4,18 +4,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '../shared/material/material.module';
+import { SharedModule } from '../shared/shared.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
 
 
 @NgModule({
   declarations: [
-    LayoutComponent
+    LayoutComponent,
+    DashboardComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule
+    SharedModule,
+    MatMenuModule
   ],
   exports: [
     BrowserModule,

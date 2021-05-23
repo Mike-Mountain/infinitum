@@ -1,0 +1,11 @@
+<section class='dashboard'>
+  <ng-container *ngFor='let lib of libs'>
+    <a (click)='routeToLib(lib)'>
+      <mat-card>
+        <mat-card-content>
+          <h1>{{lib.title}}</h1>
+        </mat-card-content>
+      </mat-card>
+    </a>
+  </ng-container>
+</section>

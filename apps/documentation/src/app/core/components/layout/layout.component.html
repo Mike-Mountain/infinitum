@@ -1,27 +1,39 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+<mat-sidenav-container class='sidenav-container'>
+  <mat-sidenav #drawer class='sidenav' fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]='(isHandset$ | async) === false && hasDrawer'>
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <docs-side-nav></docs-side-nav>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>documentation</span>
+    <mat-toolbar color='primary' class='flex-between'>
+      <div>
+        <button
+          type='button'
+          aria-label='Toggle sidenav'
+          mat-icon-button
+          (click)='drawer.toggle()'
+          *ngIf='isHandset$ | async'>
+          <mat-icon aria-label='Side nav toggle icon'>menu</mat-icon>
+        </button>
+        <span>Documentation</span>
+      </div>
+      <div>
+        <button mat-raised-button color='accent' [mat-menu-trigger-for]='libMenu'>{{(selectedDocs$ | async)?.title || 'Please Choose a library'}}</button>
+      </div>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <main class='content'>
+      <router-outlet></router-outlet>
+    </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+<mat-menu #libMenu>
+  <ng-container *ngFor='let lib of libs'>
+    <button mat-menu-item (click)='setSelectedLib(lib)'>{{lib.title}}</button>
+  </ng-container>
+</mat-menu>
