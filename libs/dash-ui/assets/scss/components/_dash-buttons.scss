@@ -1,0 +1,40 @@
+.dash-basic-button, .dash-icon-button {
+  @extend .mat-button;
+  box-sizing: border-box;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  padding: 0 16px;
+  border-radius: 4px;
+  overflow: visible;
+  transition: background-color .2s ease;
+}
+
+.dash-icon-button {
+  padding: 0;
+  min-width: 0;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  line-height: 40px;
+  border-radius: 50%;
+}
+
+.button-primary:hover {
+  background-color: rgba(var(--primaryValues), 0.1) !important;
+}
+.button-accent:hover {
+  background-color: var(--accent) !important;
+}
+.button-warn:hover {
+  background-color: var(--warn) !important;
+}
+
