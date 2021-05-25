@@ -6,14 +6,15 @@
   cursor: pointer;
   outline: none;
   border: none;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   white-space: nowrap;
   text-decoration: none;
   vertical-align: baseline;
   text-align: center;
   margin: 0;
   padding: 0 16px;
-  border-radius: 4px;
   overflow: visible;
   transition: background-color .2s ease;
 }
@@ -28,13 +29,33 @@
   border-radius: 50%;
 }
 
-.button-primary:hover {
-  background-color: rgba(var(--primaryValues), 0.1) !important;
+.button-primary.button-active {
+  background-color: rgba(var(--primaryValues), 0.4) !important;
 }
-.button-accent:hover {
-  background-color: var(--accent) !important;
+
+.button-accent.button-active {
+  background-color: rgba(var(--accentValues), 0.4) !important;
 }
-.button-warn:hover {
-  background-color: var(--warn) !important;
+
+.button-warn.button-active {
+  background-color: rgba(var(--warnValues), 0.4) !important;
+}
+
+.button-primary {
+  &:hover {
+    background-color: rgba(var(--primaryValues), 0.2) !important;
+  }
+}
+
+.button-accent {
+  &:hover {
+    background-color: rgba(var(--accentValues), 0.2) !important;
+  }
+}
+
+.button-warn {
+  &:hover {
+    background-color: rgba(var(--warnValues), 0.2) !important;
+  }
 }
 

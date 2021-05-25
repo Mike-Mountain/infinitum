@@ -5,12 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
 import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
 import { SharedModule } from '../shared/shared.module';
+import { SideNavigationComponent } from './components/side-navigation/side-navigation.component';
 
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    TopNavigationComponent
+    TopNavigationComponent,
+    SideNavigationComponent
   ],
   imports: [
     BrowserModule,
