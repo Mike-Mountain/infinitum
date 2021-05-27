@@ -1,0 +1,9 @@
+.file-navigation {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.active-tree-node {
+  background-color: rgba(var(--accentValues), 0.4);
+}

@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 1.5rem 1fr 4fr;
+  grid-template-columns: 1.5rem minmax(max-content, 1fr) 4fr;
   grid-template-rows: 2rem 3fr 2rem 1.5rem;
   grid-template-areas:
   "topNav topNav topNav"
