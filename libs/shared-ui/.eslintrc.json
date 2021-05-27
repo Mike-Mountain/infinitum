@@ -10,6 +10,8 @@
       ],
       "parserOptions": { "project": ["libs/shared-ui/tsconfig.*?.json"] },
       "rules": {
+        "@typescript-eslint/no-empty-function": 0,
+        "@angular-eslint/no-empty-lifecycle-method": 0,
         "@angular-eslint/directive-selector": [
           "error",
           { "type": "attribute", "prefix": "inf", "style": "camelCase" }
