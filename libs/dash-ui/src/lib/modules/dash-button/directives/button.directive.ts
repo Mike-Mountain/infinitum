@@ -24,7 +24,7 @@ export class ButtonDirective implements OnInit {
     this.classList = [
       `dash-${this.buttonType}-button`,
       `button-${this.color}`,
-      this.size && `button-${this.size}`
+      `button-${this.size}`
     ];
     this.setBaseStyles();
   }
