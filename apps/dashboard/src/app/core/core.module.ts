@@ -7,6 +7,7 @@ import { TopNavigationComponent } from './components/top-navigation/top-navigati
 import { SharedModule } from '../shared/shared.module';
 import { SideNavigationComponent } from './components/side-navigation/side-navigation.component';
 import { FileNavigationComponent } from './components/file-navigation/file-navigation.component';
+import { BottomNavigationComponent } from './components/bottom-navigation/bottom-navigation.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FileNavigationComponent } from './components/file-navigation/file-navig
     LayoutComponent,
     TopNavigationComponent,
     SideNavigationComponent,
-    FileNavigationComponent
+    FileNavigationComponent,
+    BottomNavigationComponent
   ],
   imports: [
     BrowserModule,
