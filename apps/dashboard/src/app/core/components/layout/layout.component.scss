@@ -3,12 +3,13 @@
   height: 100%;
   display: grid;
   grid-template-columns: 1.5rem minmax(max-content, 1fr) 4fr;
-  grid-template-rows: 2rem 3fr 2rem 1.5rem;
+  grid-template-rows: 2rem 3fr 0 1.5rem 1.5rem;
   grid-template-areas:
   "topNav topNav topNav"
   "sideNav fileNav content"
   "bottomContent bottomContent bottomContent"
-  "bottomNav bottomNav bottomNav";
+  "bottomNav bottomNav bottomNav"
+  "bottomInfo bottomInfo bottomInfo";
 }
 
 .top-nav {
@@ -44,4 +45,9 @@
 .bottom-nav {
   border: 1px solid black;
   grid-area: bottomNav;
+}
+
+.info-container {
+  border: 1px solid black;
+  grid-area: bottomInfo;
 }
