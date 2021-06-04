@@ -7,6 +7,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "nx": "nx",
     "start": "ng serve",
+    "mock-server": "http-server libs/mock-data --port=9000",
     "dash:dev": "nx serve dashboard -c dev",
     "docs": "nx serve documentation",
     "build": "ng build",
@@ -42,6 +43,7 @@
     "@angular/platform-browser-dynamic": "^11.2.0",
     "@angular/router": "^11.2.0",
     "@nrwl/angular": "12.1.1",
+    "http-server": "^0.12.3",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.2"
