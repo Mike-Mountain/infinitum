@@ -1,0 +1,277 @@
+[
+  {
+    "title": "Mock Project One",
+    "isRootNode": true,
+    "id": 0,
+    "files": [
+      {
+        "title": "src",
+        "id": 1,
+        "files": [
+          {
+            "title": "app",
+            "id": 2,
+            "files": [
+              {
+                "title": "core",
+                "id": 3,
+                "files": [],
+                "routePath": "coreFolder"
+              },
+              {
+                "title": "modules",
+                "id": 4,
+                "files": [],
+                "routePath": "modulesFolder"
+              },
+              {
+                "title": "shared",
+                "id": 5,
+                "files": [],
+                "routePath": "sharedFolder"
+              },
+              {
+                "title": "app.component.html",
+                "id": 6,
+                "files": [],
+                "routePath": "appcomponenthtml"
+              },
+              {
+                "title": "app.component.scss",
+                "id": 7,
+                "files": [],
+                "routePath": "appcomponentscss"
+              },
+              {
+                "title": "app.component.spec.ts",
+                "id": 8,
+                "files": [],
+                "routePath": "appcomponentspects"
+              },
+              {
+                "title": "app.component.ts",
+                "id": 9,
+                "files": [],
+                "routePath": "appcomponentts"
+              },
+              {
+                "title": "app.module.ts",
+                "id": 10,
+                "files": [],
+                "routePath": "appmodulets"
+              },
+              {
+                "title": "app-routing.module.ts",
+                "id": 11,
+                "files": [],
+                "routePath": "approutingmodule"
+              }
+            ],
+            "routePath": "appFolder"
+          },
+          {
+            "title": "assets",
+            "id": 12,
+            "files": [
+              {
+                "title": ".gitkeep",
+                "id": 13,
+                "files": [],
+                "routePath": "gitkeep"
+              }
+            ],
+            "routePath": "assetsFolder"
+          },
+          {
+            "title": "environments",
+            "id": 14,
+            "files": [
+              {
+                "title": "environment.dev.ts",
+                "id": 15,
+                "files": [],
+                "routePath": "environmentdev"
+              },
+              {
+                "title": "environment.prod.ts",
+                "id": 16,
+                "files": [],
+                "routePath": "environmentprod"
+              },
+              {
+                "title": "environment.ts",
+                "id": 17,
+                "files": [],
+                "routePath": "environment"
+              }
+            ],
+            "routePath": "environmentsFolder"
+          },
+          {
+            "title": "favicon.ico",
+            "id": 18,
+            "files": [],
+            "routePath": "favicon"
+          },
+          {
+            "title": "index.html",
+            "id": 19,
+            "files": [],
+            "routePath": "indexhtml"
+          },
+          {
+            "title": "main.ts",
+            "id": 20,
+            "files": [],
+            "routePath": "maints"
+          },
+          {
+            "title": ".polyfills.ts",
+            "id": 21,
+            "files": [],
+            "routePath": "polyfills"
+          },
+          {
+            "title": "styles.scss",
+            "id": 22,
+            "files": [],
+            "routePath": "stylesscss"
+          }
+        ],
+        "routePath": "src"
+      },
+      {
+        "title": ".browserlistrc",
+        "id": 23,
+        "files": [],
+        "routePath": "browserlistrc"
+      },
+      {
+        "title": ".eslintrc.json",
+        "id": 24,
+        "files": [],
+        "routePath": "eslintrc"
+      },
+      {
+        "title": ".editorconfig",
+        "id": 25,
+        "files": [],
+        "routePath": "editorconfig"
+      },
+      {
+        "title": ".gitignore",
+        "id": 26,
+        "files": [],
+        "routePath": "gitignore"
+      },
+      {
+        "title": "angular.json",
+        "id": 27,
+        "files": [],
+        "routePath": "angularjson"
+      },
+      {
+        "title": "package.json",
+        "id": 28,
+        "files": [],
+        "routePath": "packagejson"
+      },
+      {
+        "title": "package-lock.json",
+        "id": 29,
+        "files": [],
+        "routePath": "packagelockjson"
+      },
+      {
+        "title": "README.md",
+        "id": 30,
+        "files": [],
+        "routePath": "readme"
+      }
+    ],
+    "routePath": "/mock-one"
+  },
+  {
+    "title": "Mock Project Two",
+    "isRootNode": true,
+    "id": 31,
+    "files": [
+      {
+        "title": "Project File One",
+        "id": 32,
+        "files": [],
+        "routePath": "projectFileOne"
+      },
+      {
+        "title": "Project File Two",
+        "id": 33,
+        "files": [],
+        "routePath": "projectFileTwo"
+      }
+    ],
+    "routePath": "/mock-two"
+  },
+  {
+    "title": "Mock Project Three",
+    "isRootNode": true,
+    "id": 34,
+    "files": [
+      {
+        "title": "Project File One",
+        "id": 35,
+        "files": [],
+        "routePath": "projectFileOne"
+      },
+      {
+        "title": "Project File Two",
+        "id": 36,
+        "files": [],
+        "routePath": "projectFileTwo"
+      }
+
+    ],
+    "routePath": "/mock-three"
+  },
+  {
+    "title": "Mock Project Four",
+    "isRootNode": true,
+    "id": 37,
+    "files": [
+      {
+        "title": "Project File One",
+        "id": 38,
+        "files": [],
+        "routePath": "projectFileOne"
+      },
+      {
+        "title": "Project File Two",
+        "id": 39,
+        "files": [],
+        "routePath": "projectFileTwo"
+      }
+
+    ],
+    "routePath": "/mock-four"
+  },
+  {
+    "title": "Mock Project Five",
+    "id": 40,
+    "files": [
+      {
+        "title": "Project File One",
+        "id": 41,
+        "files": [],
+        "routePath": "projectFileOne"
+      },
+      {
+        "title": "Project File Two",
+        "id": 42,
+        "files": [],
+        "routePath": "projectFileTwo"
+      }
+
+    ],
+    "routePath": "/mock-five"
+  }
+]
+

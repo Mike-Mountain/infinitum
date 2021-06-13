@@ -1,76 +1,64 @@
 import { Injectable } from '@angular/core';
+import { ProjectsQuery } from '../../../modules/projects/store/projects.query';
+import { ProjectsService } from '../../../modules/projects/store/projects.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Project, ProjectFlatNode, ProjectNode } from '../../../modules/projects/store/project.model';
+import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import { FlatTreeControl } from '@angular/cdk/tree';
 
-// TODO: Move interfaces to Projects module models folder
-
-export interface ProjectNode {
-  id: number;
-  name: string;
-  children?: ProjectNode[];
-}
-
-export interface ProjectFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileNavigationService {
 
-  constructor() {
+  public treeFlattener: MatTreeFlattener<ProjectNode, ProjectFlatNode>;
+  public dataSource: MatTreeFlatDataSource<ProjectNode, ProjectFlatNode, ProjectFlatNode>;
+  public treeControl = new FlatTreeControl<ProjectFlatNode>(
+    node => node.level, node => node.expandable
+  );
+  private _transformer = (node: ProjectNode, level: number) => {
+    return {
+      expandable: !!node.children && node.children.length > 0,
+      name: node.name,
+      path: node.path,
+      id: node.id,
+      level: level
+    };
+  };
+
+  constructor(private projectQuery: ProjectsQuery, private projectService: ProjectsService) {
+    this.treeFlattener = new MatTreeFlattener(
+      this._transformer,
+      node => node.level,
+      node => node.expandable,
+      node => node.children
+    );
+    this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   }
 
-  public getMockData(): ProjectNode[] {
-    return [
-      {
-        name: 'Project One',
-        id: 0,
-        children: [
-          {
-            name: 'Folder One',
-            id: 4,
-            children: [
-              {
-                name: 'File Three',
-                id: 65,
-                children: [
-                  { name: 'File One', id: 67 },
-                  { name: 'File Two', id: 34 }
-                ]
-              },
-              { name: 'File One', id: 5 },
-              { name: 'File Two', id: 6 }
-            ]
-          },
-          { name: 'File One', id: 1 },
-          { name: 'File Two', id: 2 },
-          { name: 'File Three', id: 3 }
-        ]
-      },
-      {
-        name: 'Project Two',
-        id: 7,
-        children: [
-          {
-            name: 'Folder One',
-            id: 8,
-            children: [
-              { name: 'File One', id: 9 },
-              { name: 'File Two', id: 10 }
-            ]
-          },
-          {
-            name: 'Folder Three',
-            id: 11,
-            children: [
-              { name: 'File One', id: 12 },
-              { name: 'File Two', id: 13 }
-            ]
-          }
-        ]
-      }
-    ];
+  public getMockData(): Observable<ProjectNode[]> {
+    if (!this.projectQuery.getHasCache()) {
+      return this.projectService.getAllProjects().pipe(
+        map(item => this.formatData(item))
+      );
+    } else {
+      return this.projectQuery.selectAll().pipe(
+        map(item => this.formatData(item))
+      );
+    }
+  }
+
+  private formatData(data: Project[]): ProjectNode[] {
+    return data?.map((project) => {
+      return {
+        name: project.title,
+        isRootNode: project.isRootNode,
+        id: project.id,
+        path: project.routePath,
+        children: this.formatData(project.files)
+      } as ProjectNode;
+    });
   }
 }

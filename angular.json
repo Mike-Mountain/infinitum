@@ -1,7 +1,7 @@
 {
   "version": 1,
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@datorama/akita"
   },
   "defaultProject": "dashboard",
   "schematics": {
@@ -102,7 +102,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dashboard:build"
+            "browserTarget": "dashboard:build",
+            "proxyConfig": "apps/dashboard/src/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -324,6 +325,31 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/documentation-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "shared-data": {
+      "projectType": "library",
+      "root": "libs/shared-data",
+      "sourceRoot": "libs/shared-data/src",
+      "prefix": "infinitum",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared-data/src/**/*.ts",
+              "libs/shared-data/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared-data"],
+          "options": {
+            "jestConfig": "libs/shared-data/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

@@ -20,6 +20,7 @@
     "documentation-e2e": {
       "tags": [],
       "implicitDependencies": ["documentation"]
-    }
+    },
+    "shared-data": { "tags": [] }
   }
 }
