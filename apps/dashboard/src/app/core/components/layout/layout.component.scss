@@ -25,6 +25,7 @@
 .file-nav {
   border: 1px solid black;
   grid-area: fileNav;
+  max-height: calc(100vh - 5rem); // 5rem = 2rem + 1.5rem + 1.5rem = top nav + bottom nav + bottom info
 }
 
 .content-container {

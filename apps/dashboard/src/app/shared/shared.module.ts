@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './modules/material/material.module';
 import { DashUiModule } from './modules/dash-ui/dash-ui.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -9,11 +10,13 @@ import { DashUiModule } from './modules/dash-ui/dash-ui.module';
   imports: [
     CommonModule,
     MaterialModule,
-    DashUiModule
+    DashUiModule,
+    HttpClientModule
   ],
   exports: [
     MaterialModule,
-    DashUiModule
+    DashUiModule,
+    HttpClientModule
   ]
 })
 export class SharedModule {
