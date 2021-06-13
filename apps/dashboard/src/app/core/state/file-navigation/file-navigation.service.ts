@@ -19,6 +19,7 @@ export class FileNavigationService {
   public treeControl = new FlatTreeControl<ProjectFlatNode>(
     node => node.level, node => node.expandable
   );
+
   private _transformer = (node: ProjectNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
@@ -45,22 +46,36 @@ export class FileNavigationService {
     if (!this.projectQuery.getHasCache()) {
       return this.projectService.getAllProjects().pipe(
         map(data => this.formatData(data)),
-        tap(projects => this.fileNavigationStore.update(() => ({projects})))
+        tap(projects => this.fileNavigationStore.update(() => ({ projects })))
       );
     } else {
       return this.projectQuery.selectAll().pipe(
         map(data => this.formatData(data)),
-        tap(projects => this.fileNavigationStore.update(() => ({projects})))
+        tap(projects => this.fileNavigationStore.update(() => ({ projects })))
       );
     }
   }
 
   public setSelectedProject(selectedProject: ProjectNode) {
-    this.fileNavigationStore.update(() => ({selectedProject}));
+    this.fileNavigationStore.update(() => ({ selectedProject }));
   }
 
-  public setSelectedFile(selectedFileId: ProjectNode ) {
-    this.fileNavigationStore.update(() => ({selectedFile: selectedFileId}))
+  public setSelectedFile(selectedField: ProjectNode) {
+    this.fileNavigationStore.update(() => ({
+      selectedFile: selectedField,
+    }));
+  }
+
+  public addActiveFiles(newFile: ProjectNode) {
+    const activeFiles = new Set(this.fileNavigationStore.getValue().activeFiles);
+    activeFiles.add(newFile);
+    this.fileNavigationStore.update(() => ({
+      activeFiles: [...activeFiles]
+    }));
+  }
+
+  public updateActiveNode(activeTreeNode: string) {
+    this.fileNavigationStore.update(() => ({ activeTreeNode }));
   }
 
   private formatData(data: Project[]): ProjectNode[] {

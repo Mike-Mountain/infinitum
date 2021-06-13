@@ -31,14 +31,16 @@ export class FileNavigationComponent implements OnInit {
   hasChild = (_: number, node: ProjectFlatNode) => node.expandable;
 
   ngOnInit(): void {
+    this.fileNavigationQuery.select('activeTreeNode').subscribe(activeNode => this.activeTreeNode = activeNode);
   }
 
   navigateToNode(node: ProjectNode) {
-    this.activeTreeNode = node.name;
+    this.fileNavigationService.updateActiveNode(node.name);
     if (node.isProjectRoot) {
       this.fileNavigationService.setSelectedProject(node);
     } else {
       this.fileNavigationService.setSelectedFile(node);
+      this.fileNavigationService.addActiveFiles(node);
     }
     this.router.navigateByUrl(`/projects/${node.path}`);
   }
