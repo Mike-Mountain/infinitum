@@ -5,6 +5,8 @@ export interface FileNavigationState {
   projects: ProjectNode[];
   selectedProject: ProjectNode;
   selectedFile: ProjectNode;
+  activeFiles: ProjectNode[];
+  activeTreeNode: string;
 }
 
 export function createFileNavigation(params: Partial<FileNavigationState>) {
@@ -12,7 +14,9 @@ export function createFileNavigation(params: Partial<FileNavigationState>) {
     id: params?.id,
     projects: params?.projects || [],
     selectedProject: params?.selectedProject,
-    selectedFile: params?.selectedFile
+    selectedFile: params?.selectedFile,
+    activeFiles: params?.activeFiles || [],
+    activeTreeNode: params?.activeTreeNode
   } as FileNavigationState;
 }
 
@@ -21,6 +25,8 @@ export function createInitialState(): Partial<FileNavigationState> {
     id: '',
     projects: [],
     selectedProject: undefined,
-    selectedFile: undefined
+    selectedFile: undefined,
+    activeFiles: [],
+    activeTreeNode: ''
   } as FileNavigationState;
 }

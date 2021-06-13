@@ -1,0 +1,13 @@
+<nav class='content-tabs'>
+  <ng-container *ngFor='let file of (activeFiles$ | async)'>
+    <a
+      dash-button
+      class='content-tab-button'
+      color='primary'
+      [class.active-tab]='activeTreeNode === file.name'
+      (click)='navigateToFile(file)'
+    >
+      {{file.name}}
+    </a>
+  </ng-container>
+</nav>
