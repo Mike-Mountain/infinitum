@@ -1,5 +1,6 @@
 export interface ProjectNode {
-  id: number | string;
+  id: string;
+  isProjectRoot: boolean;
   name: string;
   path: string;
   children?: ProjectNode[];
@@ -13,8 +14,8 @@ export interface ProjectFlatNode {
 
 
 export interface Project {
-  id: number | string;
-  isRootNode: boolean;
+  id: string;
+  isProjectRoot: boolean;
   title: string;
   files: any[];
   routePath: string;
@@ -23,7 +24,7 @@ export interface Project {
 export function createProject(params: Partial<Project>) {
   return {
     id: params?.id,
-    isRootNode: params?.isRootNode,
+    isProjectRoot: params?.isProjectRoot,
     title: params?.title,
     files: params?.files || [],
     routePath: params?.routePath

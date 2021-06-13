@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FileNavigationService } from '../../services/file-navigation/file-navigation.service';
+import { FileNavigationService } from '../../state/file-navigation/file-navigation.service';
 import { Router } from '@angular/router';
 import { ProjectsService } from '../../../modules/projects/store/projects.service';
 import { ProjectFlatNode, ProjectNode } from '../../../modules/projects/store/project.model';
 import { MatTreeFlatDataSource } from '@angular/material/tree';
 import { FlatTreeControl } from '@angular/cdk/tree';
+import { FileNavigationQuery } from '../../state/file-navigation/file-navigation.query';
 
 @Component({
   selector: 'app-file-navigation',
@@ -17,7 +18,9 @@ export class FileNavigationComponent implements OnInit {
   dataSource: MatTreeFlatDataSource<ProjectNode, ProjectFlatNode, ProjectFlatNode>;
   treeControl: FlatTreeControl<ProjectFlatNode>;
 
-  constructor(private fileNavigationService: FileNavigationService, private router: Router) {
+  constructor(private fileNavigationService: FileNavigationService,
+              private fileNavigationQuery: FileNavigationQuery,
+              private router: Router) {
     fileNavigationService.getMockData().subscribe(data => {
       this.fileNavigationService.dataSource.data = data;
       this.treeControl = this.fileNavigationService.treeControl;
@@ -32,6 +35,11 @@ export class FileNavigationComponent implements OnInit {
 
   navigateToNode(node: ProjectNode) {
     this.activeTreeNode = node.name;
+    if (node.isProjectRoot) {
+      this.fileNavigationService.setSelectedProject(node);
+    } else {
+      this.fileNavigationService.setSelectedFile(node);
+    }
     this.router.navigateByUrl(`/projects/${node.path}`);
   }
 }

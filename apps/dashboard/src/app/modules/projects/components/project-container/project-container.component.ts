@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FileNavigationQuery } from '../../../../core/state/file-navigation/file-navigation.query';
+import { ProjectNode } from '../../store/project.model';
 
 @Component({
   selector: 'app-project-container',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectContainerComponent implements OnInit {
 
-  constructor() { }
+  public file: ProjectNode;
+
+  constructor(private fileNavigationQuery: FileNavigationQuery) { }
 
   ngOnInit(): void {
+    this.fileNavigationQuery.select().subscribe(files => {
+      this.file = files.selectedFile;
+    })
   }
 
 }

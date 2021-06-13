@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { ProjectsQuery } from '../../../modules/projects/store/projects.query';
 import { ProjectsService } from '../../../modules/projects/store/projects.service';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Project, ProjectFlatNode, ProjectNode } from '../../../modules/projects/store/project.model';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { FlatTreeControl } from '@angular/cdk/tree';
+import { FileNavigationStore } from './file-navigation.store';
 
 
 @Injectable({
@@ -28,7 +29,9 @@ export class FileNavigationService {
     };
   };
 
-  constructor(private projectQuery: ProjectsQuery, private projectService: ProjectsService) {
+  constructor(private projectQuery: ProjectsQuery,
+              private projectService: ProjectsService,
+              private fileNavigationStore: FileNavigationStore) {
     this.treeFlattener = new MatTreeFlattener(
       this._transformer,
       node => node.level,
@@ -41,20 +44,30 @@ export class FileNavigationService {
   public getMockData(): Observable<ProjectNode[]> {
     if (!this.projectQuery.getHasCache()) {
       return this.projectService.getAllProjects().pipe(
-        map(item => this.formatData(item))
+        map(data => this.formatData(data)),
+        tap(projects => this.fileNavigationStore.update(() => ({projects})))
       );
     } else {
       return this.projectQuery.selectAll().pipe(
-        map(item => this.formatData(item))
+        map(data => this.formatData(data)),
+        tap(projects => this.fileNavigationStore.update(() => ({projects})))
       );
     }
+  }
+
+  public setSelectedProject(selectedProject: ProjectNode) {
+    this.fileNavigationStore.update(() => ({selectedProject}));
+  }
+
+  public setSelectedFile(selectedFileId: ProjectNode ) {
+    this.fileNavigationStore.update(() => ({selectedFile: selectedFileId}))
   }
 
   private formatData(data: Project[]): ProjectNode[] {
     return data?.map((project) => {
       return {
         name: project.title,
-        isRootNode: project.isRootNode,
+        isProjectRoot: project.isProjectRoot,
         id: project.id,
         path: project.routePath,
         children: this.formatData(project.files)
