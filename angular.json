@@ -53,13 +53,20 @@
             "main": "apps/dashboard/src/main.ts",
             "polyfills": "apps/dashboard/src/polyfills.ts",
             "tsConfig": "apps/dashboard/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "apps/dashboard/src/favicon.ico",
               "apps/dashboard/src/assets"
             ],
-            "styles": ["apps/dashboard/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "apps/dashboard/src/styles.scss"
+            ],
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -97,7 +104,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -131,7 +139,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/dashboard"],
+          "outputs": [
+            "coverage/apps/dashboard"
+          ],
           "options": {
             "jestConfig": "apps/dashboard/jest.config.js",
             "passWithNoTests": true
@@ -160,7 +170,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/dashboard-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/dashboard-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -182,7 +194,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/dash-ui"],
+          "outputs": [
+            "coverage/libs/dash-ui"
+          ],
           "options": {
             "jestConfig": "libs/dash-ui/jest.config.js",
             "passWithNoTests": true
@@ -207,7 +221,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared-ui"],
+          "outputs": [
+            "coverage/libs/shared-ui"
+          ],
           "options": {
             "jestConfig": "libs/shared-ui/jest.config.js",
             "passWithNoTests": true
@@ -229,13 +245,20 @@
             "main": "apps/documentation/src/main.ts",
             "polyfills": "apps/documentation/src/polyfills.ts",
             "tsConfig": "apps/documentation/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "apps/documentation/src/favicon.ico",
               "apps/documentation/src/assets"
             ],
-            "styles": ["apps/documentation/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "apps/documentation/src/styles.scss"
+            ],
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -265,7 +288,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -295,7 +319,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/documentation"],
+          "outputs": [
+            "coverage/apps/documentation"
+          ],
           "options": {
             "jestConfig": "apps/documentation/jest.config.js",
             "passWithNoTests": true
@@ -324,7 +350,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/documentation-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/documentation-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -346,7 +374,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared-data"],
+          "outputs": [
+            "coverage/libs/shared-data"
+          ],
           "options": {
             "jestConfig": "libs/shared-data/jest.config.js",
             "passWithNoTests": true
