@@ -3,6 +3,7 @@ export interface ProjectNode {
   isProjectRoot: boolean;
   name: string;
   path: string;
+  icon: string;
   children?: ProjectNode[];
 }
 
@@ -19,6 +20,7 @@ export interface Project {
   title: string;
   files: any[];
   routePath: string;
+  icon: string;
 }
 
 export function createProject(params: Partial<Project>) {
@@ -27,6 +29,7 @@ export function createProject(params: Partial<Project>) {
     isProjectRoot: params?.isProjectRoot,
     title: params?.title,
     files: params?.files || [],
-    routePath: params?.routePath
+    routePath: params?.routePath,
+    icon: params?.icon
   } as Project;
 }
