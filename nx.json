@@ -1,26 +1,53 @@
 {
   "implicitDependencies": {
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     ".eslintrc.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "infinitum",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   },
   "projects": {
-    "dashboard": { "tags": [] },
-    "dashboard-e2e": { "tags": [], "implicitDependencies": ["dashboard"] },
-    "dash-ui": { "tags": [] },
-    "shared-ui": { "tags": [] },
-    "documentation": { "tags": [] },
+    "dashboard": {
+      "tags": []
+    },
+    "dashboard-e2e": {
+      "tags": [],
+      "implicitDependencies": ["dashboard"]
+    },
+    "dash-ui": {
+      "tags": []
+    },
+    "shared-ui": {
+      "tags": []
+    },
+    "documentation": {
+      "tags": []
+    },
     "documentation-e2e": {
       "tags": [],
       "implicitDependencies": ["documentation"]
     },
-    "shared-data": { "tags": [] }
+    "shared-data": {
+      "tags": []
+    },
+    "simple-todo": {
+      "tags": []
+    },
+    "simple-todo-e2e": {
+      "tags": [],
+      "implicitDependencies": ["simple-todo"]
+    }
   }
 }

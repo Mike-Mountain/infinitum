@@ -8,17 +8,27 @@
         "plugin:@nrwl/nx/angular",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
-      "parserOptions": { "project": ["apps/documentation/tsconfig.*?.json"] },
+      "parserOptions": {
+        "project": ["apps/documentation/tsconfig.*?.json"]
+      },
       "rules": {
         "@typescript-eslint/no-empty-function": 0,
         "@angular-eslint/no-empty-lifecycle-method": 0,
         "@angular-eslint/directive-selector": [
           "error",
-          { "type": "attribute", "prefix": "docs", "style": "camelCase" }
+          {
+            "type": "attribute",
+            "prefix": "docs",
+            "style": "camelCase"
+          }
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "docs", "style": "kebab-case" }
+          {
+            "type": "element",
+            "prefix": "docs",
+            "style": "kebab-case"
+          }
         ]
       }
     },

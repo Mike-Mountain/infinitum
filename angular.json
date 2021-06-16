@@ -46,20 +46,29 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/apps/dashboard",
             "index": "apps/dashboard/src/index.html",
             "main": "apps/dashboard/src/main.ts",
             "polyfills": "apps/dashboard/src/polyfills.ts",
             "tsConfig": "apps/dashboard/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "apps/dashboard/src/favicon.ico",
               "apps/dashboard/src/assets"
             ],
-            "styles": ["apps/dashboard/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "apps/dashboard/src/styles.scss"
+            ],
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true,
+            "extraWebpackConfig": "apps/dashboard/webpack.config.js",
+            "commonChunk": false
           },
           "configurations": {
             "production": {
@@ -87,7 +96,8 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "apps/dashboard/webpack.prod.config.js"
             },
             "dev": {
               "fileReplacements": [
@@ -97,17 +107,21 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "dashboard:build",
-            "proxyConfig": "apps/dashboard/src/proxy.conf.json"
+            "proxyConfig": "apps/dashboard/src/proxy.conf.json",
+            "extraWebpackConfig": "apps/dashboard/webpack.config.js",
+            "port": 5000
           },
           "configurations": {
             "production": {
-              "browserTarget": "dashboard:build:production"
+              "browserTarget": "dashboard:build:production",
+              "extraWebpackConfig": "apps/dashboard/webpack.prod.config.js"
             },
             "dev": {
               "browserTarget": "dashboard:build:dev"
@@ -130,11 +144,14 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/dashboard"],
+          "builder": "ngx-build-plus:karma",
+          "outputs": [
+            "coverage/apps/dashboard"
+          ],
           "options": {
             "jestConfig": "apps/dashboard/jest.config.js",
-            "passWithNoTests": true
+            "passWithNoTests": true,
+            "extraWebpackConfig": "apps/dashboard/webpack.config.js"
           }
         }
       }
@@ -160,7 +177,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/dashboard-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/dashboard-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -182,7 +201,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/dash-ui"],
+          "outputs": [
+            "coverage/libs/dash-ui"
+          ],
           "options": {
             "jestConfig": "libs/dash-ui/jest.config.js",
             "passWithNoTests": true
@@ -207,7 +228,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared-ui"],
+          "outputs": [
+            "coverage/libs/shared-ui"
+          ],
           "options": {
             "jestConfig": "libs/shared-ui/jest.config.js",
             "passWithNoTests": true
@@ -229,13 +252,20 @@
             "main": "apps/documentation/src/main.ts",
             "polyfills": "apps/documentation/src/polyfills.ts",
             "tsConfig": "apps/documentation/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "apps/documentation/src/favicon.ico",
               "apps/documentation/src/assets"
             ],
-            "styles": ["apps/documentation/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "apps/documentation/src/styles.scss"
+            ],
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -265,7 +295,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -295,7 +326,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/documentation"],
+          "outputs": [
+            "coverage/apps/documentation"
+          ],
           "options": {
             "jestConfig": "apps/documentation/jest.config.js",
             "passWithNoTests": true
@@ -324,7 +357,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/documentation-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/documentation-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -346,10 +381,159 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared-data"],
+          "outputs": [
+            "coverage/libs/shared-data"
+          ],
           "options": {
             "jestConfig": "libs/shared-data/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "simple-todo": {
+      "projectType": "application",
+      "root": "apps/simple-todo",
+      "sourceRoot": "apps/simple-todo/src",
+      "prefix": "infinitum",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/simple-todo",
+            "index": "apps/simple-todo/src/index.html",
+            "main": "apps/simple-todo/src/main.ts",
+            "polyfills": "apps/simple-todo/src/polyfills.ts",
+            "tsConfig": "apps/simple-todo/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/simple-todo/src/favicon.ico",
+              "apps/simple-todo/src/assets"
+            ],
+            "styles": [
+              "apps/simple-todo/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "apps/simple-todo/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/simple-todo/src/environments/environment.ts",
+                  "with": "apps/simple-todo/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "apps/simple-todo/webpack.prod.config.js"
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/simple-todo/src/environments/environment.ts",
+                  "with": "apps/simple-todo/src/environments/environment.dev.ts"
+                }
+              ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "simple-todo:build:production",
+              "extraWebpackConfig": "apps/simple-todo/webpack.prod.config.js"
+            },
+            "dev": {
+              "browserTarget": "simple-todo:build:dev"
+            },
+            "development": {
+              "browserTarget": "simple-todo:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "extraWebpackConfig": "apps/simple-todo/webpack.config.js",
+            "port": 4200
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "simple-todo:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/simple-todo/src/**/*.ts",
+              "apps/simple-todo/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "outputs": [
+            "coverage/apps/simple-todo"
+          ],
+          "options": {
+            "jestConfig": "apps/simple-todo/jest.config.js",
+            "passWithNoTests": true,
+            "extraWebpackConfig": "apps/simple-todo/webpack.config.js"
+          }
+        }
+      }
+    },
+    "simple-todo-e2e": {
+      "root": "apps/simple-todo-e2e",
+      "sourceRoot": "apps/simple-todo-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/simple-todo-e2e/cypress.json",
+            "tsConfig": "apps/simple-todo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "simple-todo:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "simple-todo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/simple-todo-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
