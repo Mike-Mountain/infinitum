@@ -8,6 +8,9 @@
       (click)='navigateToFile(file)'
     >
       {{file.name}}
+      <button class='close-tab-button' dash-button color='primary' buttonType='icon' (click)='closeTab(file, $event)'>
+        <mat-icon>close</mat-icon>
+      </button>
     </a>
   </ng-container>
 </nav>

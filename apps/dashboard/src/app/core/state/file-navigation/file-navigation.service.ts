@@ -62,8 +62,20 @@ export class FileNavigationService {
 
   public setSelectedFile(selectedField: ProjectNode) {
     this.fileNavigationStore.update(() => ({
-      selectedFile: selectedField,
+      selectedFile: selectedField
     }));
+  }
+
+  public removeSelectedFile(selected: ProjectNode) {
+    const selectedFields = new Set(this.fileNavigationStore.getValue().activeFiles);
+    selectedFields.delete(selected);
+    const selectedFieldsArray = [...selectedFields];
+    this.fileNavigationStore.update(() => ({
+      activeFiles: selectedFieldsArray
+    }));
+    const newField = selectedFieldsArray[selectedFieldsArray.length - 1];
+    this.setSelectedFile(newField);
+    this.updateActiveNode(newField?.name);
   }
 
   public addActiveFiles(newFile: ProjectNode) {

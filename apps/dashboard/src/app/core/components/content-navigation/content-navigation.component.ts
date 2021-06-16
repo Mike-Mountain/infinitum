@@ -17,11 +17,16 @@ export class ContentNavigationComponent implements OnInit {
 
   constructor(private fileNavigationQuery: FileNavigationQuery,
               private fileNavigationService: FileNavigationService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.activeFiles$ = this.fileNavigationQuery.select('activeFiles');
-    this.fileNavigationQuery.select('activeTreeNode').subscribe(activeNode => this.activeTreeNode = activeNode);
+    this.fileNavigationQuery.select('activeTreeNode').subscribe(activeNode => {
+      activeNode ?
+        this.activeTreeNode = activeNode :
+        this.router.navigateByUrl('/');
+    });
   }
 
   public navigateToFile(node: ProjectNode): void {
@@ -33,5 +38,10 @@ export class ContentNavigationComponent implements OnInit {
       this.fileNavigationService.setSelectedFile(node);
     }
     this.router.navigateByUrl(`/projects/${node.path}`);
+  }
+
+  public closeTab(file: ProjectNode, event: MouseEvent) {
+    this.fileNavigationService.removeSelectedFile(file);
+    event.stopPropagation();
   }
 }
