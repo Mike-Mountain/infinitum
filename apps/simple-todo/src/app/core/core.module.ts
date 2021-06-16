@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomeComponent } from './components/home/home.component';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
+  declarations: [],
   imports: [
-    CommonModule
+    BrowserModule,
+    AppRoutingModule
   ],
   exports: [
-    HomeComponent
+    BrowserModule,
+    AppRoutingModule
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+}
