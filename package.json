@@ -9,7 +9,7 @@
     "start": "ng serve",
     "mock-server": "http-server libs/ --port=9000",
     "dash:dev": "nx serve dashboard -c dev",
-    "dash:mock": "ng serve -c=dev --host 0.0.0.0",
+    "todo:dev": "nx serve simple-todo -c dev",
     "docs": "nx serve documentation",
     "build": "ng build",
     "test": "ng test",

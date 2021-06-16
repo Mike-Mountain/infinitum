@@ -22,11 +22,6 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      // For hosts (please adjust)
-      remotes: {
-        // 'documentation': 'documentation@http://localhost:4200/remoteEntry.js'
-      },
-
       shared: {
         '@angular/core': { singleton: true, strictVersion: true, requiredVersion: '12.0.4' },
         '@angular/common': { singleton: true, strictVersion: true, requiredVersion: '12.0.4' },

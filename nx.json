@@ -41,6 +41,13 @@
     },
     "shared-data": {
       "tags": []
+    },
+    "simple-todo": {
+      "tags": []
+    },
+    "simple-todo-e2e": {
+      "tags": [],
+      "implicitDependencies": ["simple-todo"]
     }
   }
 }
