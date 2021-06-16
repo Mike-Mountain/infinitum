@@ -1,68 +1,87 @@
 [
   {
-    "title": "Mock Project One",
+    "title": "Simple Todo",
     "isRootNode": true,
     "id": 0,
+    "icon": "keyboard_arrow_right",
     "files": [
+      {
+        "title": "Run application",
+        "id": 346,
+        "icon": "play_arrow",
+        "files": [],
+        "routePath": "simple-todo"
+      },
       {
         "title": "src",
         "id": 1,
+        "icon": "keyboard_arrow_right",
         "files": [
           {
             "title": "app",
             "id": 2,
+            "icon": "keyboard_arrow_right",
             "files": [
               {
                 "title": "core",
                 "id": 3,
+                "icon": "",
                 "files": [],
                 "routePath": "coreFolder"
               },
               {
                 "title": "modules",
                 "id": 4,
+                "icon": "",
                 "files": [],
                 "routePath": "modulesFolder"
               },
               {
                 "title": "shared",
                 "id": 5,
+                "icon": "",
                 "files": [],
                 "routePath": "sharedFolder"
               },
               {
                 "title": "app.component.html",
                 "id": 6,
+                "icon": "",
                 "files": [],
                 "routePath": "appcomponenthtml"
               },
               {
                 "title": "app.component.scss",
                 "id": 7,
+                "icon": "",
                 "files": [],
                 "routePath": "appcomponentscss"
               },
               {
                 "title": "app.component.spec.ts",
                 "id": 8,
+                "icon": "",
                 "files": [],
                 "routePath": "appcomponentspects"
               },
               {
                 "title": "app.component.ts",
                 "id": 9,
+                "icon": "",
                 "files": [],
                 "routePath": "appcomponentts"
               },
               {
                 "title": "app.module.ts",
                 "id": 10,
+                "icon": "",
                 "files": [],
                 "routePath": "appmodulets"
               },
               {
                 "title": "app-routing.module.ts",
                 "id": 11,
+                "icon": "",
                 "files": [],
                 "routePath": "approutingmodule"
               }
@@ -72,10 +91,12 @@
           {
             "title": "assets",
             "id": 12,
+            "icon": "keyboard_arrow_right",
             "files": [
               {
                 "title": ".gitkeep",
                 "id": 13,
+                "icon": "",
                 "files": [],
                 "routePath": "gitkeep"
               }
@@ -85,22 +106,26 @@
           {
             "title": "environments",
             "id": 14,
+            "icon": "keyboard_arrow_right",
             "files": [
               {
                 "title": "environment.dev.ts",
                 "id": 15,
+                "icon": "",
                 "files": [],
                 "routePath": "environmentdev"
               },
               {
                 "title": "environment.prod.ts",
                 "id": 16,
+                "icon": "",
                 "files": [],
                 "routePath": "environmentprod"
               },
               {
                 "title": "environment.ts",
                 "id": 17,
+                "icon": "",
                 "files": [],
                 "routePath": "environment"
               }
@@ -110,30 +135,35 @@
           {
             "title": "favicon.ico",
             "id": 18,
+            "icon": "",
             "files": [],
             "routePath": "favicon"
           },
           {
             "title": "index.html",
             "id": 19,
+            "icon": "",
             "files": [],
             "routePath": "indexhtml"
           },
           {
             "title": "main.ts",
             "id": 20,
+            "icon": "",
             "files": [],
             "routePath": "maints"
           },
           {
             "title": ".polyfills.ts",
             "id": 21,
+            "icon": "",
             "files": [],
             "routePath": "polyfills"
           },
           {
             "title": "styles.scss",
             "id": 22,
+            "icon": "",
             "files": [],
             "routePath": "stylesscss"
           }
@@ -143,48 +173,56 @@
       {
         "title": ".browserlistrc",
         "id": 23,
+        "icon": "",
         "files": [],
         "routePath": "browserlistrc"
       },
       {
         "title": ".eslintrc.json",
         "id": 24,
+        "icon": "",
         "files": [],
         "routePath": "eslintrc"
       },
       {
         "title": ".editorconfig",
         "id": 25,
+        "icon": "",
         "files": [],
         "routePath": "editorconfig"
       },
       {
         "title": ".gitignore",
         "id": 26,
+        "icon": "",
         "files": [],
         "routePath": "gitignore"
       },
       {
         "title": "angular.json",
         "id": 27,
+        "icon": "",
         "files": [],
         "routePath": "angularjson"
       },
       {
         "title": "package.json",
         "id": 28,
+        "icon": "",
         "files": [],
         "routePath": "packagejson"
       },
       {
         "title": "package-lock.json",
         "id": 29,
+        "icon": "",
         "files": [],
         "routePath": "packagelockjson"
       },
       {
         "title": "README.md",
         "id": 30,
+        "icon": "",
         "files": [],
         "routePath": "readme"
       }
@@ -195,16 +233,19 @@
     "title": "Mock Project Two",
     "isRootNode": true,
     "id": 31,
+    "icon": "keyboard_arrow_right",
     "files": [
       {
         "title": "Project File One",
         "id": 32,
+        "icon": "",
         "files": [],
         "routePath": "projectFileOne"
       },
       {
         "title": "Project File Two",
         "id": 33,
+        "icon": "",
         "files": [],
         "routePath": "projectFileTwo"
       }
@@ -215,16 +256,19 @@
     "title": "Mock Project Three",
     "isRootNode": true,
     "id": 34,
+    "icon": "keyboard_arrow_right",
     "files": [
       {
         "title": "Project File One",
         "id": 35,
+        "icon": "",
         "files": [],
         "routePath": "projectFileOne"
       },
       {
         "title": "Project File Two",
         "id": 36,
+        "icon": "",
         "files": [],
         "routePath": "projectFileTwo"
       }
@@ -236,16 +280,19 @@
     "title": "Mock Project Four",
     "isRootNode": true,
     "id": 37,
+    "icon": "keyboard_arrow_right",
     "files": [
       {
         "title": "Project File One",
         "id": 38,
+        "icon": "",
         "files": [],
         "routePath": "projectFileOne"
       },
       {
         "title": "Project File Two",
         "id": 39,
+        "icon": "",
         "files": [],
         "routePath": "projectFileTwo"
       }
@@ -256,16 +303,20 @@
   {
     "title": "Mock Project Five",
     "id": 40,
+    "isRootNode": true,
+    "icon": "keyboard_arrow_right",
     "files": [
       {
         "title": "Project File One",
         "id": 41,
+        "icon": "",
         "files": [],
         "routePath": "projectFileOne"
       },
       {
         "title": "Project File Two",
         "id": 42,
+        "icon": "",
         "files": [],
         "routePath": "projectFileTwo"
       }

@@ -25,6 +25,7 @@ export class FileNavigationComponent implements OnInit {
       this.fileNavigationService.dataSource.data = data;
       this.treeControl = this.fileNavigationService.treeControl;
       this.dataSource = this.fileNavigationService.dataSource;
+      console.log(this.dataSource);
     });
   }
 

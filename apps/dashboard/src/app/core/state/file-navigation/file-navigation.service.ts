@@ -25,6 +25,7 @@ export class FileNavigationService {
       expandable: !!node.children && node.children.length > 0,
       name: node.name,
       path: node.path,
+      icon: node.icon,
       id: node.id,
       level: level
     };
@@ -97,6 +98,7 @@ export class FileNavigationService {
         isProjectRoot: project.isProjectRoot,
         id: project.id,
         path: project.routePath,
+        icon: project.icon,
         children: this.formatData(project.files)
       } as ProjectNode;
     });
