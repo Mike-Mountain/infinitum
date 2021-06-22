@@ -6,11 +6,11 @@ import { ButtonColor, ButtonType } from '../models/dash-button.model';
 })
 export class ButtonDirective implements OnInit {
 
-  @Input() private color: ButtonColor = 'primary';
-  @Input() private buttonType: ButtonType = 'basic';
-  @Input() private disabled = false;
-  @Input() private size: 'sm' | 'xl' | undefined;
-  @Input() private class = '';
+  @Input() public color: ButtonColor = 'primary';
+  @Input() public buttonType: ButtonType = 'basic';
+  @Input() public disabled = false;
+  @Input() public size: 'sm' | 'xl' | undefined;
+  @Input() public class = '';
 
   private readonly element: HTMLButtonElement | HTMLAnchorElement;
   private classList: string[] = [];

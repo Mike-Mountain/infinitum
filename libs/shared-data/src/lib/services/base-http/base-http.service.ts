@@ -12,7 +12,7 @@ export abstract class BaseHttpService {
     return this._apiUrl;
   }
 
-  private _apiUrl: string;
+  public _apiUrl = '';
 
   protected constructor(protected http: HttpClient) {
   }

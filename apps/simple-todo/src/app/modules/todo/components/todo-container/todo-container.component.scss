@@ -1,0 +1,31 @@
+.todo-container {
+  width: 70%;
+  height: 100%;
+  margin: auto
+}
+
+.single-todo {
+  width: 65%;
+  margin: auto;
+  display: grid;
+  grid-template-rows: 3rem;
+  grid-template-columns: 2rem 1fr 2rem;
+  grid-gap: 2rem;
+}
+
+.complete {
+  color: grey;
+  opacity: .8;
+  text-decoration: line-through;
+}
+
+.circle {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.filled {
+  background-color: black;
+}
