@@ -1,4 +1,4 @@
-<section class='file-navigation' *ngIf='dataSource?.data?.length > 0'>
+<section class='file-navigation' *ngIf='dataSource?.data?.length > 0 && activeSpaces?.includes("projects")'>
   <mat-tree [dataSource]='dataSource' [treeControl]='treeControl'>
     <mat-tree-node
       *matTreeNodeDef='let node'

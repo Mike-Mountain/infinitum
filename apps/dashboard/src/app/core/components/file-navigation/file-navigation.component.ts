@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FileNavigationService } from '../../state/file-navigation/file-navigation.service';
 import { Router } from '@angular/router';
 import { ProjectsService } from '../../../modules/projects/store/projects.service';
@@ -13,6 +13,8 @@ import { FileNavigationQuery } from '../../state/file-navigation/file-navigation
   styleUrls: ['./file-navigation.component.scss']
 })
 export class FileNavigationComponent implements OnInit {
+
+  @Input() activeSpaces: string[];
 
   activeTreeNode: string;
   dataSource: MatTreeFlatDataSource<ProjectNode, ProjectFlatNode, ProjectFlatNode>;
@@ -31,6 +33,7 @@ export class FileNavigationComponent implements OnInit {
   hasChild = (_: number, node: ProjectFlatNode) => node.expandable;
 
   ngOnInit(): void {
+    console.log(this.activeSpaces);
     this.fileNavigationQuery.select('activeTreeNode').subscribe(activeNode => this.activeTreeNode = activeNode);
   }
 
