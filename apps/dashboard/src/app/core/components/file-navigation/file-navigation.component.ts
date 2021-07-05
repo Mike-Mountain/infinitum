@@ -1,11 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FileNavigationService } from '../../state/file-navigation/file-navigation.service';
 import { Router } from '@angular/router';
-import { ProjectsService } from '../../../modules/projects/store/projects.service';
-import { ProjectFlatNode, ProjectNode } from '../../../modules/projects/store/project.model';
-import { MatTreeFlatDataSource } from '@angular/material/tree';
-import { FlatTreeControl } from '@angular/cdk/tree';
 import { FileNavigationQuery } from '../../state/file-navigation/file-navigation.query';
+import { InfTreeNode } from '../../../../../../../libs/shared-ui/src/lib/modules/tree/models/tree.model';
 
 @Component({
   selector: 'app-file-navigation',
@@ -17,27 +14,22 @@ export class FileNavigationComponent implements OnInit {
   @Input() activeSpaces: string[];
 
   activeTreeNode: string;
-  dataSource: MatTreeFlatDataSource<ProjectNode, ProjectFlatNode, ProjectFlatNode>;
-  treeControl: FlatTreeControl<ProjectFlatNode>;
+  data: InfTreeNode[];
 
   constructor(private fileNavigationService: FileNavigationService,
               private fileNavigationQuery: FileNavigationQuery,
               private router: Router) {
     fileNavigationService.getMockData().subscribe(data => {
-      this.fileNavigationService.dataSource.data = data;
-      this.treeControl = this.fileNavigationService.treeControl;
-      this.dataSource = this.fileNavigationService.dataSource;
+      this.data = data;
     });
   }
-
-  hasChild = (_: number, node: ProjectFlatNode) => node.expandable;
 
   ngOnInit(): void {
     console.log(this.activeSpaces);
     this.fileNavigationQuery.select('activeTreeNode').subscribe(activeNode => this.activeTreeNode = activeNode);
   }
 
-  navigateToNode(node: ProjectNode) {
+  navigateToNode(node: InfTreeNode) {
     this.fileNavigationService.updateActiveNode(node.name);
     if (node.isProjectRoot) {
       this.fileNavigationService.setSelectedProject(node);
