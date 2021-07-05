@@ -3,10 +3,9 @@ import { ProjectsQuery } from '../../../modules/projects/store/projects.query';
 import { ProjectsService } from '../../../modules/projects/store/projects.service';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { Project, ProjectFlatNode, ProjectNode } from '../../../modules/projects/store/project.model';
-import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
-import { FlatTreeControl } from '@angular/cdk/tree';
+import { Project } from '../../../modules/projects/store/project.model';
 import { FileNavigationStore } from './file-navigation.store';
+import { InfTreeNode } from '../../../../../../../libs/shared-ui/src/lib/modules/tree/models/tree.model';
 
 
 @Injectable({
@@ -14,36 +13,12 @@ import { FileNavigationStore } from './file-navigation.store';
 })
 export class FileNavigationService {
 
-  public treeFlattener: MatTreeFlattener<ProjectNode, ProjectFlatNode>;
-  public dataSource: MatTreeFlatDataSource<ProjectNode, ProjectFlatNode, ProjectFlatNode>;
-  public treeControl = new FlatTreeControl<ProjectFlatNode>(
-    node => node.level, node => node.expandable
-  );
-
-  private _transformer = (node: ProjectNode, level: number) => {
-    return {
-      expandable: !!node.children && node.children.length > 0,
-      name: node.name,
-      path: node.path,
-      icon: node.icon,
-      id: node.id,
-      level: level
-    };
-  };
-
   constructor(private projectQuery: ProjectsQuery,
               private projectService: ProjectsService,
               private fileNavigationStore: FileNavigationStore) {
-    this.treeFlattener = new MatTreeFlattener(
-      this._transformer,
-      node => node.level,
-      node => node.expandable,
-      node => node.children
-    );
-    this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   }
 
-  public getMockData(): Observable<ProjectNode[]> {
+  public getMockData(): Observable<InfTreeNode[]> {
     if (!this.projectQuery.getHasCache()) {
       return this.projectService.getAllProjects().pipe(
         map(data => this.formatData(data)),
@@ -57,17 +32,17 @@ export class FileNavigationService {
     }
   }
 
-  public setSelectedProject(selectedProject: ProjectNode) {
+  public setSelectedProject(selectedProject: InfTreeNode) {
     this.fileNavigationStore.update(() => ({ selectedProject }));
   }
 
-  public setSelectedFile(selectedField: ProjectNode) {
+  public setSelectedFile(selectedField: InfTreeNode) {
     this.fileNavigationStore.update(() => ({
       selectedFile: selectedField
     }));
   }
 
-  public removeSelectedFile(selected: ProjectNode) {
+  public removeSelectedFile(selected: InfTreeNode) {
     const selectedFields = new Set(this.fileNavigationStore.getValue().activeFiles);
     selectedFields.delete(selected);
     const selectedFieldsArray = [...selectedFields];
@@ -79,7 +54,7 @@ export class FileNavigationService {
     this.updateActiveNode(newField?.name);
   }
 
-  public addActiveFiles(newFile: ProjectNode) {
+  public addActiveFiles(newFile: InfTreeNode) {
     const activeFiles = new Set(this.fileNavigationStore.getValue().activeFiles);
     activeFiles.add(newFile);
     this.fileNavigationStore.update(() => ({
@@ -91,7 +66,7 @@ export class FileNavigationService {
     this.fileNavigationStore.update(() => ({ activeTreeNode }));
   }
 
-  private formatData(data: Project[]): ProjectNode[] {
+  private formatData(data: Project[]): InfTreeNode[] {
     return data?.map((project) => {
       return {
         name: project.title,
@@ -100,7 +75,7 @@ export class FileNavigationService {
         path: project.routePath,
         icon: project.icon,
         children: this.formatData(project.files)
-      } as ProjectNode;
+      } as InfTreeNode;
     });
   }
 }
