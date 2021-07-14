@@ -16,6 +16,10 @@
   grid-template-columns: 1.5rem 0 4fr;
 }
 
+.open-bottom-navigation {
+  grid-template-rows: 2rem 3fr minmax(max-content, 1fr) 1.5rem 1.5rem;
+}
+
 .top-nav {
   border: 1px solid black;
   grid-area: topNav;

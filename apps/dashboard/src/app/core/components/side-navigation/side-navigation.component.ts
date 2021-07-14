@@ -17,7 +17,6 @@ export class SideNavigationComponent implements OnInit {
   }
 
   updateActiveSpaces(space: string) {
-    this.layoutService.updateSpace(space);
-    console.log(this.layoutQuery.getValue());
+    this.layoutService.updateSpace(space, 'side');
   }
 }

@@ -1,5 +1,9 @@
 <ng-container *ngIf='activeSpaces | async as spaces'>
-  <div class='app-layout' [class.close-file-navigation]='spaces.length === 0'>
+  <div
+    class='app-layout'
+    [class.close-file-navigation]='spaces.activeSpacesTop.length === 0'
+    [class.open-bottom-navigation]='spaces.activeSpacesBottom.length > 0'
+  >
     <header class='top-nav'>
       <app-top-navigation></app-top-navigation>
     </header>
@@ -8,7 +12,7 @@
     </aside>
     <aside class='file-nav'>
       <app-file-navigation
-        [activeSpaces]='spaces'
+        [activeSpaces]='spaces.activeSpacesTop'
       ></app-file-navigation>
     </aside>
     <main class='content-container'>
@@ -21,7 +25,9 @@
     </main>
     <section class='bottom-content'></section>
     <section class='bottom-nav'>
-      <app-bottom-navigation></app-bottom-navigation>
+      <app-bottom-navigation
+        [activeSpaces]='spaces.activeSpacesBottom'
+      ></app-bottom-navigation>
     </section>
     <footer class='info-container'></footer>
   </div>
