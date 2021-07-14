@@ -25,7 +25,6 @@ export class FileNavigationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.activeSpaces);
     this.fileNavigationQuery.select('activeTreeNode').subscribe(activeNode => this.activeTreeNode = activeNode);
   }
 

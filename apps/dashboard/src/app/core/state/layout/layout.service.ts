@@ -8,11 +8,19 @@ export class LayoutService {
   constructor(private layoutStore: LayoutStore) {
   }
 
-  updateSpace(space: string) {
-    const state = {
-      activeSpaces: this.addOrRemoveSpace(space, [...this.layoutStore.getValue().activeSpaces])
-    };
+  updateSpace(space: string, origin: string) {
+    let state: Partial<LayoutState>;
+    if (origin === 'side') {
+      state = {
+        activeSpacesTop: this.addOrRemoveSpace(space, [...this.layoutStore.getValue().activeSpacesTop])
+      }
+    } else {
+      state = {
+        activeSpacesBottom: this.addOrRemoveSpace(space, [...this.layoutStore.getValue().activeSpacesBottom])
+      }
+    }
     this.layoutStore.update(state);
+    console.log(this.layoutStore.getValue());
   }
 
   addOrRemoveSpace(space: string, spaces: string[]): string[] {
