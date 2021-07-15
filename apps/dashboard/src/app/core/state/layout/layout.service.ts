@@ -8,11 +8,15 @@ export class LayoutService {
   constructor(private layoutStore: LayoutStore) {
   }
 
+  updateActiveProject(project: string) {
+    this.layoutStore.update({activeProject: project})
+  }
+
   updateSpace(space: string, origin: string) {
     let state: Partial<LayoutState>;
     if (origin === 'side') {
       state = {
-        activeSpacesTop: this.addOrRemoveSpace(space, [...this.layoutStore.getValue().activeSpacesTop])
+        activeSpacesSide: this.addOrRemoveSpace(space, [...this.layoutStore.getValue().activeSpacesSide])
       }
     } else {
       state = {

@@ -2,13 +2,15 @@ export type SideSpaces = 'projects' | 'blog';
 export type BottomSpaces = 'projects' | 'blog';
 
 export interface LayoutState {
-  activeSpacesTop: Array<string>
+  activeSpacesSide: Array<string>
   activeSpacesBottom: Array<string>
+  activeProject: string;
 }
 
 export function createLayout(params: Partial<LayoutState>) {
   return {
-    activeSpacesTop: params?.activeSpacesTop || [],
-    activeSpacesBottom: params?.activeSpacesBottom || []
+    activeSpacesSide: params?.activeSpacesSide || [],
+    activeSpacesBottom: params?.activeSpacesBottom || [],
+    activeProject: params?.activeProject
   } as LayoutState;
 }

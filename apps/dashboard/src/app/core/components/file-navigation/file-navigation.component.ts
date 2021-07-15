@@ -3,6 +3,7 @@ import { FileNavigationService } from '../../state/file-navigation/file-navigati
 import { Router } from '@angular/router';
 import { FileNavigationQuery } from '../../state/file-navigation/file-navigation.query';
 import { InfTreeNode } from '../../../../../../../libs/shared-ui/src/lib/modules/tree/models/tree.model';
+import { LayoutService } from '../../state/layout/layout.service';
 
 @Component({
   selector: 'app-file-navigation',
@@ -18,6 +19,7 @@ export class FileNavigationComponent implements OnInit {
 
   constructor(private fileNavigationService: FileNavigationService,
               private fileNavigationQuery: FileNavigationQuery,
+              private layoutService: LayoutService,
               private router: Router) {
     fileNavigationService.getMockData().subscribe(data => {
       this.data = data;
@@ -36,6 +38,7 @@ export class FileNavigationComponent implements OnInit {
       this.fileNavigationService.setSelectedFile(node);
       this.fileNavigationService.addActiveFiles(node);
     }
+    this.layoutService.updateActiveProject(node.path);
     this.router.navigateByUrl(`/projects/${node.path}`);
   }
 }
