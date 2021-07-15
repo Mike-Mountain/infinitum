@@ -8,14 +8,28 @@
     </ng-container>
   </nav>
   <nav class='app-nav'>
-    <button
-      dash-button
-      [buttonType]='"icon"'
-      [color]='"primary"'
-      class='icon-btn-sm flex-center'
-    >
-      <mat-icon class='icon-sm'>play_arrow</mat-icon>
-    </button>
+    <ng-container *ngIf='selectedProject | async as project; else disabled'>
+      <button
+        dash-button
+        [buttonType]='"icon"'
+        [color]='"primary"'
+        class='icon-btn-sm flex-center'
+        (click)='navigateToProject(project)'
+      >
+        <mat-icon class='icon-sm'>play_arrow</mat-icon>
+      </button>
+    </ng-container>
+    <ng-template #disabled>
+      <button
+        dash-button
+        [buttonType]='"icon"'
+        [color]='"primary"'
+        class='icon-btn-sm flex-center'
+        disabled
+      >
+        <mat-icon class='icon-sm'>play_arrow</mat-icon>
+      </button>
+    </ng-template>
     |
     <button
       dash-button
@@ -30,6 +44,7 @@
       [buttonType]='"icon"'
       [color]='"primary"'
       class='icon-btn-sm flex-center'
+      routerLink='about'
     >
       <mat-icon class='icon-sm'>help</mat-icon>
     </button>
@@ -38,6 +53,7 @@
       [buttonType]='"icon"'
       [color]='"primary"'
       class='icon-btn-sm flex-center'
+      routerLink='about'
     >
       <mat-icon class='icon-sm'>home</mat-icon>
     </button>
@@ -47,9 +63,16 @@
       [buttonType]='"icon"'
       [color]='"primary"'
       class='icon-btn-sm flex-center'
+      (click)='showSearch = !showSearch'
     >
       <mat-icon class='icon-sm'>search</mat-icon>
     </button>
+    <ng-container *ngIf='showSearch'>
+      <input
+        matInput
+        type='search'
+      />
+    </ng-container>
     <button
       dash-button
       [color]='"primary"'

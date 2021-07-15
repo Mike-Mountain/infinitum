@@ -9,6 +9,8 @@ import { SideNavigationComponent } from './components/side-navigation/side-navig
 import { FileNavigationComponent } from './components/file-navigation/file-navigation.component';
 import { BottomNavigationComponent } from './components/bottom-navigation/bottom-navigation.component';
 import { ContentNavigationComponent } from './components/content-navigation/content-navigation.component';
+import { AboutComponent } from './components/about/about.component';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -18,13 +20,15 @@ import { ContentNavigationComponent } from './components/content-navigation/cont
     SideNavigationComponent,
     FileNavigationComponent,
     BottomNavigationComponent,
-    ContentNavigationComponent
+    ContentNavigationComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    MatInputModule
   ],
   exports: [
     BrowserModule,

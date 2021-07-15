@@ -8,7 +8,7 @@ export class LayoutStore extends Store<LayoutState> {
 
   constructor() {
     super(createLayout({
-      activeSpacesTop: ['projects']
+      activeSpacesSide: ['projects']
     }));
   }
 

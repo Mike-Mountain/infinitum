@@ -1,7 +1,7 @@
 <ng-container *ngIf='activeSpaces | async as spaces'>
   <div
     class='app-layout'
-    [class.close-file-navigation]='spaces.activeSpacesTop.length === 0'
+    [class.close-file-navigation]='spaces.activeSpacesSide.length === 0'
     [class.open-bottom-navigation]='spaces.activeSpacesBottom.length > 0'
   >
     <header class='top-nav'>
@@ -12,7 +12,7 @@
     </aside>
     <aside class='file-nav'>
       <app-file-navigation
-        [activeSpaces]='spaces.activeSpacesTop'
+        [activeSpaces]='spaces.activeSpacesSide'
       ></app-file-navigation>
     </aside>
     <main class='content-container'>
