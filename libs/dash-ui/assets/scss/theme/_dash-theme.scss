@@ -28,13 +28,40 @@ $infinitum-light-theme: mat-light-theme($inf-dash-primary, $inf-dash-accent, $in
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 
-.dark-theme {
-  @include angular-material-theme($infinitum-dark-theme);
-  span {
-    color: white;
-  }
-}
+//:root {
+//  --contenBg: rgb(255, 255, 255);
+//  --menuBg: rgb(241, 241, 241);
+//  --border: rgb(205, 205, 205);
+//  --highlight: rgb(251, 250, 234);
+//  --text-primary: rgb(47, 49, 216);
+//  --text-secondary: rgb(137, 201, 191);
+//  --file-text: rgb(4, 4, 4);
+//}
 
-.light-theme {
-  @include angular-material-theme($infinitum-light-theme);
+.theme {
+  @media (prefers-color-scheme: dark) {
+    @include angular-material-theme($infinitum-dark-theme);
+    --contenBg: rgb(33, 36, 45);
+    --menuBg: rgb(42, 44, 56);
+    --border: rgb(58, 61, 75);
+    --highlight: rgb(56, 58, 70);
+    --text-primary: rgb(240, 255, 255);
+    --text-secondary: rgb(174, 190, 218);
+    --file-text: rgb(130, 144, 170);
+
+    .mat-tree {
+      background: var(--contenBg);
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    @include angular-material-theme($infinitum-light-theme);
+    --contenBg: rgb(255, 255, 255);
+    --menuBg: rgb(241, 241, 241);
+    --border: rgb(205, 205, 205);
+    --highlight: rgb(251, 250, 234);
+    --text-primary: rgb(47, 49, 216);
+    --text-secondary: rgb(137, 201, 191);
+    --file-text: rgb(4, 4, 4);
+  }
 }

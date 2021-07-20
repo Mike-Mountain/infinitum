@@ -21,29 +21,34 @@
 }
 
 .top-nav {
-  border: 1px solid black;
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
   grid-area: topNav;
 }
 
 .side-nav {
-  border: 1px solid black;
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
   grid-area: sideNav;
 }
 
 .file-nav {
-  border: 1px solid black;
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--contenBg);
   grid-area: fileNav;
   max-height: calc(100vh - 5rem); // 5rem = 2rem + 1.5rem + 1.5rem = top nav + bottom nav + bottom info
 }
 
 .content-container {
-  border: 1px solid black;
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--contenBg);
   grid-area: content;
   display: grid;
   grid-template-rows: max-content 1fr;
 }
 .content-nav {
-  border: 1px solid black;
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
 }
 
 .content {
@@ -51,16 +56,19 @@
 }
 
 .bottom-content {
-  border: 1px solid black;
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
   grid-area: bottomContent;
 }
 
 .bottom-nav {
-  border: 1px solid black;
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
   grid-area: bottomNav;
 }
 
 .info-container {
-  border: 1px solid black;
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
   grid-area: bottomInfo;
 }
