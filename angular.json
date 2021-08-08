@@ -39,6 +39,81 @@
     }
   },
   "projects": {
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/api"],
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "dash-ui": {
+      "projectType": "library",
+      "root": "libs/dash-ui",
+      "sourceRoot": "libs/dash-ui/src",
+      "prefix": "dash",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/dash-ui/src/**/*.ts",
+              "libs/dash-ui/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/dash-ui"],
+          "options": {
+            "jestConfig": "libs/dash-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "dashboard": {
       "projectType": "application",
       "root": "apps/dashboard",
@@ -57,9 +132,7 @@
               "apps/dashboard/src/favicon.ico",
               "apps/dashboard/src/assets"
             ],
-            "styles": [
-              "apps/dashboard/src/styles.scss"
-            ],
+            "styles": ["apps/dashboard/src/styles.scss"],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -145,9 +218,7 @@
         },
         "test": {
           "builder": "ngx-build-plus:karma",
-          "outputs": [
-            "coverage/apps/dashboard"
-          ],
+          "outputs": ["coverage/apps/dashboard"],
           "options": {
             "jestConfig": "apps/dashboard/jest.config.js",
             "passWithNoTests": true,
@@ -177,63 +248,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/dashboard-e2e/**/*.{js,ts}"
-            ]
-          }
-        }
-      }
-    },
-    "dash-ui": {
-      "projectType": "library",
-      "root": "libs/dash-ui",
-      "sourceRoot": "libs/dash-ui/src",
-      "prefix": "dash",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/dash-ui/src/**/*.ts",
-              "libs/dash-ui/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/dash-ui"
-          ],
-          "options": {
-            "jestConfig": "libs/dash-ui/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "shared-ui": {
-      "projectType": "library",
-      "root": "libs/shared-ui",
-      "sourceRoot": "libs/shared-ui/src",
-      "prefix": "inf",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared-ui/src/**/*.ts",
-              "libs/shared-ui/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared-ui"
-          ],
-          "options": {
-            "jestConfig": "libs/shared-ui/jest.config.js",
-            "passWithNoTests": true
+            "lintFilePatterns": ["apps/dashboard-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -256,9 +271,7 @@
               "apps/documentation/src/favicon.ico",
               "apps/documentation/src/assets"
             ],
-            "styles": [
-              "apps/documentation/src/styles.scss"
-            ],
+            "styles": ["apps/documentation/src/styles.scss"],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -326,9 +339,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/documentation"
-          ],
+          "outputs": ["coverage/apps/documentation"],
           "options": {
             "jestConfig": "apps/documentation/jest.config.js",
             "passWithNoTests": true
@@ -357,9 +368,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/documentation-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/documentation-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -381,11 +390,34 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared-data"
-          ],
+          "outputs": ["coverage/libs/shared-data"],
           "options": {
             "jestConfig": "libs/shared-data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-ui": {
+      "projectType": "library",
+      "root": "libs/shared-ui",
+      "sourceRoot": "libs/shared-ui/src",
+      "prefix": "inf",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared-ui/src/**/*.ts",
+              "libs/shared-ui/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared-ui"],
+          "options": {
+            "jestConfig": "libs/shared-ui/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -399,9 +431,7 @@
       "architect": {
         "build": {
           "builder": "ngx-build-plus:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/simple-todo",
             "index": "apps/simple-todo/src/index.html",
@@ -413,9 +443,7 @@
               "apps/simple-todo/src/favicon.ico",
               "apps/simple-todo/src/assets"
             ],
-            "styles": [
-              "apps/simple-todo/src/styles.scss"
-            ],
+            "styles": ["apps/simple-todo/src/styles.scss"],
             "scripts": [],
             "extraWebpackConfig": "apps/simple-todo/webpack.config.js",
             "commonChunk": false
@@ -499,9 +527,7 @@
         },
         "test": {
           "builder": "ngx-build-plus:karma",
-          "outputs": [
-            "coverage/apps/simple-todo"
-          ],
+          "outputs": ["coverage/apps/simple-todo"],
           "options": {
             "jestConfig": "apps/simple-todo/jest.config.js",
             "passWithNoTests": true,
@@ -531,9 +557,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/simple-todo-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/simple-todo-e2e/**/*.{js,ts}"]
           }
         }
       }

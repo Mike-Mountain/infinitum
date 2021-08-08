@@ -16,8 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@infinitum/dash-ui": ["libs/dash-ui/src/index.ts"],
-      "@infinitum/shared-ui": ["libs/shared-ui/src/index.ts"],
-      "@infinitum/shared-data": ["libs/shared-data/src/index.ts"]
+      "@infinitum/shared-data": ["libs/shared-data/src/index.ts"],
+      "@infinitum/shared-ui": ["libs/shared-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
