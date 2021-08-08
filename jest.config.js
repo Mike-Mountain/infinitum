@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/apps/documentation',
     '<rootDir>/libs/shared-data',
     '<rootDir>/apps/simple-todo',
+    '<rootDir>/apps/api',
   ],
 };

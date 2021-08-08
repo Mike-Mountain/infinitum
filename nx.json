@@ -19,18 +19,18 @@
     }
   },
   "projects": {
+    "api": {
+      "tags": []
+    },
+    "dash-ui": {
+      "tags": []
+    },
     "dashboard": {
       "tags": []
     },
     "dashboard-e2e": {
       "tags": [],
       "implicitDependencies": ["dashboard"]
-    },
-    "dash-ui": {
-      "tags": []
-    },
-    "shared-ui": {
-      "tags": []
     },
     "documentation": {
       "tags": []
@@ -40,6 +40,9 @@
       "implicitDependencies": ["documentation"]
     },
     "shared-data": {
+      "tags": []
+    },
+    "shared-ui": {
       "tags": []
     },
     "simple-todo": {
