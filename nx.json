@@ -51,6 +51,13 @@
     "simple-todo-e2e": {
       "tags": [],
       "implicitDependencies": ["simple-todo"]
+    },
+    "dinosaurs": {
+      "tags": []
+    },
+    "dinosaurs-e2e": {
+      "tags": [],
+      "implicitDependencies": ["dinosaurs"]
     }
   }
 }

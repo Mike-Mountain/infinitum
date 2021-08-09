@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FileNavigationService } from '../../state/file-navigation/file-navigation.service';
 import { Router } from '@angular/router';
 import { FileNavigationQuery } from '../../state/file-navigation/file-navigation.query';
-import { InfTreeNode } from '../../../../../../../libs/shared-ui/src/lib/modules/tree/models/tree.model';
+import { InfTreeNode } from '@infinitum/shared-ui';
 import { LayoutService } from '../../state/layout/layout.service';
 
 @Component({

@@ -21,10 +21,10 @@ export abstract class BaseHttpService {
     return `${this.apiUrl}/${partial}`;
   }
 
-  public _get<T>(apiPath: ApiPath, id?: number): Observable<T> {
+  public _get<T>(apiPath: ApiPath, id?: number | string): Observable<T> {
     const url = id ?
       this.setURl(`${apiPath}/${id}`) :
-      this.setURl(`${apiPath}`);
+      this.setURl(apiPath);
     return this.http.get<T>(url);
   }
 

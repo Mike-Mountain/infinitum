@@ -8,8 +8,8 @@ import { InfFlatTreeNode, InfTreeNode } from '../models/tree.model';
 })
 export class TreeService {
 
-  public treeFlattener: MatTreeFlattener<InfTreeNode, InfFlatTreeNode>;
-  public dataSource: MatTreeFlatDataSource<InfTreeNode, InfFlatTreeNode, InfFlatTreeNode>;
+  public treeFlattener: MatTreeFlattener<any, any, any>;
+  public dataSource: MatTreeFlatDataSource<any, any>;
   public treeControl = new FlatTreeControl<InfFlatTreeNode>(
     node => node.level, node => node.expandable
   );
