@@ -561,6 +561,136 @@
           }
         }
       }
+    },
+    "dinosaurs": {
+      "projectType": "application",
+      "root": "apps/dinosaurs",
+      "sourceRoot": "apps/dinosaurs/src",
+      "prefix": "dino",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/dinosaurs",
+            "index": "apps/dinosaurs/src/index.html",
+            "main": "apps/dinosaurs/src/main.ts",
+            "polyfills": "apps/dinosaurs/src/polyfills.ts",
+            "tsConfig": "apps/dinosaurs/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/dinosaurs/src/favicon.ico",
+              "apps/dinosaurs/src/assets"
+            ],
+            "styles": ["apps/dinosaurs/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/dinosaurs/src/environments/environment.ts",
+                  "with": "apps/dinosaurs/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/dinosaurs/src/environments/environment.ts",
+                  "with": "apps/dinosaurs/src/environments/environment.dev.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "dinosaurs:build:production"
+            },
+            "development": {
+              "browserTarget": "dinosaurs:build:development"
+            },
+            "dev": {
+              "browserTarget": "dinosaurs:build:dev"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dinosaurs:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/dinosaurs/src/**/*.ts",
+              "apps/dinosaurs/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/dinosaurs"],
+          "options": {
+            "jestConfig": "apps/dinosaurs/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "dinosaurs-e2e": {
+      "root": "apps/dinosaurs-e2e",
+      "sourceRoot": "apps/dinosaurs-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/dinosaurs-e2e/cypress.json",
+            "tsConfig": "apps/dinosaurs-e2e/tsconfig.e2e.json",
+            "devServerTarget": "dinosaurs:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dinosaurs:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/dinosaurs-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
     }
   }
 }

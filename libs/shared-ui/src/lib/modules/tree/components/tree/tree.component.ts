@@ -11,7 +11,7 @@ import { MatTreeFlatDataSource } from '@angular/material/tree';
 })
 export class TreeComponent implements OnInit {
 
-  @Input() public activeTreeNode: string;
+  @Input() public activeTreeNode: string | undefined;
 
   @Input()
   public set data(value: InfTreeNode[]) {
@@ -32,13 +32,13 @@ export class TreeComponent implements OnInit {
   private treeData: InfTreeNode[] = [];
 
   constructor(private treeService: TreeService) {
+    this.dataSource = treeService.dataSource;
+    this.treeControl = treeService.treeControl;
   }
 
   public hasChild = (_: number, node: InfFlatTreeNode) => node.expandable;
 
   ngOnInit(): void {
-    this.dataSource = this.treeService.dataSource;
-    this.treeControl = this.treeService.treeControl;
 
   }
 

@@ -1,4 +1,5 @@
 export class DinosaurDto {
+  id: number;
   name: string;
   pronunciation: string;
   meaning: string;

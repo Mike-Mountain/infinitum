@@ -7,5 +7,6 @@ module.exports = {
     '<rootDir>/libs/shared-data',
     '<rootDir>/apps/simple-todo',
     '<rootDir>/apps/api',
+    '<rootDir>/apps/dinosaurs',
   ],
 };
