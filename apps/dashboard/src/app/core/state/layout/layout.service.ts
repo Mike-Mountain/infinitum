@@ -13,6 +13,7 @@ export class LayoutService {
   }
 
   updateSpace(space: string, origin: string) {
+    // TODO: Add spaces to right or left content area
     let state: Partial<LayoutState>;
     if (origin === 'side') {
       state = {

@@ -3,8 +3,15 @@
     "title": "Mock Project Two",
     "isRootNode": true,
     "id": 31,
-    "icon": "keyboard_arrow_right",
+    "icon": "play_arrow",
     "files": [
+      {
+        "title": "Run Project",
+        "id": 32,
+        "icon": "",
+        "files": [],
+        "routePath": "runProject"
+      },
       {
         "title": "Project File One",
         "id": 32,

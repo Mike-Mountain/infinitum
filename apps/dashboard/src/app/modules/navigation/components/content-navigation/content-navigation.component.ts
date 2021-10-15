@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FileNavigationQuery } from '../../state/file-navigation/file-navigation.query';
+import { FileNavigationQuery } from '../../../../core/state/file-navigation/file-navigation.query';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { ProjectNode } from '../../../modules/projects/store/project.model';
-import { FileNavigationService } from '../../state/file-navigation/file-navigation.service';
+import { ProjectNode } from '../../../projects/store/project.model';
+import { FileNavigationService } from '../../../../core/state/file-navigation/file-navigation.service';
 
 @Component({
   selector: 'app-content-navigation',

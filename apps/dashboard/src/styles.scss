@@ -3,3 +3,6 @@
 @import "../../../libs/dash-ui/assets/scss/dash-core.styles";
 @import "../../../libs/dash-ui/assets/scss/theme/dash-theme";
 
+html, body {
+  overflow-x: hidden;
+}

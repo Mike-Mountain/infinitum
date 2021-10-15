@@ -7,15 +7,18 @@
     <header class='top-nav'>
       <app-top-navigation></app-top-navigation>
     </header>
-    <aside class='side-nav'>
-      <app-side-navigation></app-side-navigation>
+    <aside class='left-nav'>
+      <app-side-navigation
+        side='left'
+        [navItems]='leftNavItems'
+      ></app-side-navigation>
     </aside>
-    <aside class='file-nav'>
+    <aside class='left-content'>
       <app-file-navigation
         [activeSpaces]='spaces.activeSpacesSide'
       ></app-file-navigation>
     </aside>
-    <main class='content-container'>
+    <main class='main-content'>
       <div class='content-nav'>
         <app-content-navigation></app-content-navigation>
       </div>
@@ -23,11 +26,16 @@
         <router-outlet></router-outlet>
       </div>
     </main>
+    <aside class='right-content'></aside>
+    <aside class='right-nav'>
+      <app-side-navigation
+        side='right'
+        [navItems]='rightNavItems'
+      ></app-side-navigation>
+    </aside>
     <section class='bottom-content'></section>
     <section class='bottom-nav'>
-      <app-bottom-navigation
-        [activeSpaces]='spaces.activeSpacesBottom'
-      ></app-bottom-navigation>
+      <app-bottom-navigation></app-bottom-navigation>
     </section>
     <footer class='info-container'></footer>
   </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LayoutService } from '../../state/layout/layout.service';
-import { LayoutQuery } from '../../state/layout/layout.query';
+import { LayoutService } from '../../../../core/state/layout/layout.service';
+import { LayoutQuery } from '../../../../core/state/layout/layout.query';
 
 @Component({
   selector: 'app-bottom-navigation',

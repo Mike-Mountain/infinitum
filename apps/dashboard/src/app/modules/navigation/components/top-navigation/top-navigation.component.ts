@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LayoutQuery } from '../../state/layout/layout.query';
-import { FileNavigationService } from '../../state/file-navigation/file-navigation.service';
+import { LayoutQuery } from '../../../../core/state/layout/layout.query';
+import { FileNavigationService } from '../../../../core/state/file-navigation/file-navigation.service';
 import { Router } from '@angular/router';
-import { InfTreeNode } from '../../../../../../../libs/shared-ui/src/lib/modules/tree/models/tree.model';
-import { LayoutService } from '../../state/layout/layout.service';
+import { InfTreeNode } from '../../../../../../../../libs/shared-ui/src/lib/modules/tree/models/tree.model';
+import { LayoutService } from '../../../../core/state/layout/layout.service';
 
 @Component({
   selector: 'app-top-navigation',
