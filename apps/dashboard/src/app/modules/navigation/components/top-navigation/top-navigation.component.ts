@@ -18,7 +18,6 @@ export class TopNavigationComponent implements OnInit {
   public mockCrumbs = [
     {title: 'Infinitum', route: '/'},
     {title: 'Projects', route: '/'},
-    {title: 'Simple Todo', route: '/projects/simple-todo'},
   ];
 
   constructor(private layoutQuery:  LayoutQuery,
